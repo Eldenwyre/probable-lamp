@@ -1,4 +1,5 @@
 # Midterm Assignment
+Note: Any occurences of the Base/C2 IP(s) will be redacted from any documentation or script in this repo.
 ********************************
 ## Pre-Mission Steps
 Hosted a staging server using express. 
@@ -22,12 +23,20 @@ A few text box fields worth investigating when looking for potential exploits.
 ![Home](screenshots/DiscussionForm-Home.png)
 ##### Sign Up
 Text box fields worth investigating for an exploit, in addition potential file upload point. May potentially be a way to upload a payload if it is functional and depending on restrictions.
+
+The Image upload file gave no notice of errors when images, text, nor php files. The files found in /src/test-uploads are the files that were uploaded.
+> Uploaded Files:
+> 58fc1d72bfbfb_ProperIconForDiscord.png
+> download (1).jpeg
+> download.jpeg
+> e.php
+
 ![Sign Up](screenshots/DiscussionForm-Register.png)
 ##### About
 Not much useful here other than some potential information on the structure.
 ![About](screenshots/DiscussionForm-About.png)
 ##### Forum
-
+Nothing of use here without an account it seems.
 ![Forum](screenshots/DiscussionForm-Forum.png)
 ##### Contact
 Nothing of major note here. Link sends to free source code website rather than google.com. 
@@ -91,3 +100,72 @@ Recieved the following output:
 
 ********************************
 
+## Finding an Exploit
+
+### <u>Command Injections</u>
+Used various text boxes and the url bar to make naive attempts to inject SQL/shell commands. IE, simple things like adding ticks and single quotes followed by SQL commands or adding a semicolon followed by a shell command. There were no apparent advantages from these attempts, not much information was passed to the user from these.
+
+### <u>Directory Traversal</u>
+Attempting to find more information via directory traversal. 
+
+##### Initial Attempts
+Tried accessing various positions in the url to see if directory traversal would be possible. 
+Naive attempts to access things like
+> 54.204.134.68/../../../../../../etc/debian_version
+
+ Which was changed to
+
+> 54.204.134.68/etc/debian_version
+
+Did not result in anything useful outside of the following standard Apache server 404 response
+![404 Error](screenshots/etc-notfound.png)
+
+Also tried intercepting the packet using BurpeSuiteCommunity and editted the packet to edit the GET HTTP request from 
+> GET /etc/debian_version
+
+to
+
+> GET /../../../../../../../etc/debian_version
+
+Also unfruitful, recieved the typical Apache 400 Error Bad Request page
+![400 Error](screenshots/etc-badrequest.png)
+
+### <u>Exploring the HTTP Service Deeper</u>
+Noting that the url contained the file that it was accessing, there was potential for accessing the files that the user would upload, this means there was potential to use the files that were uploaded earlier, or in future, to gain access to the server. However, this requires knowing where the files are uploaded, and using a php script to execute a payload. In addition, the payload must be accepted by the server, meaning files formats and sizes are limited to whatever the form would accept. However, there were no errors when uploading the php file earlier, so this method looked hopeful if the files could be located and accessed by the end user.
+
+#### Finding the User Uploaded Files
+Some naive attempts to access the files failed.
+
+Eventualy, OWASP DirBuster was used on the webserver on port 80 (http://54.204.134.68:80) to potentially discover where the user files are stored.
+
+Ran DirBuster with the following settings:
+![DirBusterSettings](screenshots/DirBuster-Settings.png)
+
+While there were some potentially useful finds, such as an /phpmyadmin directory which results in the following response when attempting to access http://54.204.134.68/phpmyadmin :
+> For security reasons, this URL is only accessible using localhost (127.0.0.1) as the hostname.
+
+the main point was to find the user uploaded files. Which was found in the /ups directory. This was noticed when DirBuster found these files: 
+![DirBusterFound](screenshots/DirBuster-Found.png)
+
+Upon investigating this directory, the following was seen
+![ups-directory](screenshots/ups-directory.png)
+and in observing the files matching the names of those that were uploaded earlier, it was clear that they matched as seen below:
+download.png:
+![ups-download](screenshots/ups-download-matches.png)
+hello.txt:
+![ups-text](screenshots/ups-hello-matches.png)
+e.php:
+![ups-php](screenshots/ups-php-match.png)
+Important to note that it seems that the php ls query did not show all files in the directory; however it was worth investigating this further to see if an uploaded php file could execute a payload uploaded in the same directory. In addition, this was good news, as it meant multiple file formats were accepted.
+
+#### Attempting to create a reverse shell with this method
+The payload file [dog.sh](src/dog.sh) was uploaded along with [lettuce.php](src/lettuce.php) in attempts to make a reverse shell; This was generated using the same [payload generator]() from the first mission. This payload was mainly built for systems that have minimal support for various tools or languages, such as the typical android device. However, it seemed that under these circumstances, when executed by the php script the first terminal immediately terminates and only the second terminal (the recipient) persists in its connection. Thus commands would not be enterable. See below for a photo of the terminals.
+![failed-shell](screenshots/shell-attempt1.png)
+#### Attempting to create the shell with php
+In order to resolve this issue, the reverse shell was made in pure with PHP. A listener was set up on the local machine using 
+
+> `nc -w 100 -nlvp 8000` (Note that -w 100 is optional timeout)
+
+And a new payload [lettucev2.php](src/lettucev2.php) was uploaded to the server. And there was a successful connection when accessed via http://54.204.134.68/ups/lettucev2.php. 
+ Below is a successful connection on the terminal:
+ ![successful-connection](screenshots/successful-connection.png)

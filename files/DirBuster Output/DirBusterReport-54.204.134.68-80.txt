@@ -1,0 +1,107 @@
+DirBuster 1.0-RC1 - Report
+http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project
+Report produced on Tue Apr 06 19:32:25 CDT 2021
+--------------------------------
+
+http://54.204.134.68:80
+--------------------------------
+Directories found during testing:
+
+Dirs found with a 200 response:
+
+/
+/res/
+/res/images/
+/admin/
+/admin/ups/
+/db/
+/ups/
+
+Dirs found with a 403 response:
+
+/phpmyadmin/
+
+
+--------------------------------
+Files found during testing:
+
+Files found with a 200 responce:
+
+/index.php
+/contact.php
+/aboutus.php
+/register.php
+/terms.php
+/prvs.php
+/login.php
+/loginH.php
+/res/script.js
+/res/style.css
+/res/style.ie6.css
+/res/style.ie7.css
+/res/images/Thumbs.db
+/res/images/link%20photo.txt
+/header.php
+/admin/footer.php
+/admin/header.php
+/admin/logout.php
+/admin/sdelete.php
+/admin/utility.php
+/admin/ups/Thumbs.db
+/footer.php
+/db/tech_forum.sql
+/logout.php
+/utility.php
+/times.php
+/ups/download.jpeg
+/ups/Thumbs.db
+/ups/e.php
+/ups/hello.txt
+/courier.php
+/notification.php
+/symbol.php
+
+Files found with a 302 responce:
+
+/search.php
+/uhome.php
+/forum.php
+/messages.php
+/isuser.php
+/admin/aedit.php
+/admin/apupdate.php
+/admin/aupdate.php
+/admin/checkUser.php
+/admin/search.php
+/admin/home.php
+/admin/isuser.php
+/admin/message.php
+/admin/messageH.php
+/admin/messaged.php
+/admin/messages.php
+/admin/readmsg.php
+/admin/sedit.php
+/admin/sinsert.php
+/admin/sinsertH.php
+/admin/subtopic.php
+/admin/supdate.php
+/admin/tdelete.php
+/admin/tedit.php
+/admin/tinsert.php
+/admin/tinsertH.php
+/admin/topic.php
+/admin/tupdate.php
+/admin/writemsg.php
+/message.php
+/questions.php
+/answer.php
+/ans.php
+/que.php
+
+Files found with a 500 responce:
+
+/question.php
+/like.php
+
+
+--------------------------------
