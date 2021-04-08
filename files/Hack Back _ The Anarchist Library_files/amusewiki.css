@@ -1,0 +1,480 @@
+/* AmuseWiki specific CSS */
+
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 50px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -70px; /* negative value of footer height */
+  min-height: 70px;
+  clear:both;
+  padding-top:15px;
+}
+
+div#preamble p {
+    margin: 0;
+    padding: 0;
+}
+
+div#preamble {
+    padding-bottom: 20px;
+}
+
+div.preview-preamble {
+    padding-bottom: 0px !important;
+}
+
+p.tableofcontentline {
+    margin: 0px 1em;
+    text-indent: -1em;
+}
+
+div#htmltextbody {
+    margin-top: 40px;
+}
+
+div.float_image_r,div.float_image_l {
+    margin: 3px;
+}
+
+div.float_image_r {
+    margin-left: 12px;
+}
+
+.feed {
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 0 0 0 19px;
+}
+
+img.amw-navlogo-img {
+    padding: 5px 5px;
+    height: 50px;
+}
+
+img.amw-logo-img {
+    height: 25px;
+    padding: 0px;
+}
+
+a.amw-navlogo:hover {
+    text-decoration: none;
+}
+
+ul.latest-entries {
+    list-style-type: none;
+}
+
+ul.latest-entries li {
+    padding-top: 4px;
+}
+
+blockquote {
+    border-left: none;
+    margin-bottom: 10px;
+}
+
+#special-pages-logo {
+    text-align: center;
+}
+
+#special-pages-logo-img {
+    width: 110px;
+    padding-top: 30px;
+}
+
+/* Tweak the headers in the text */
+#thework > h2 {
+    font-size: 22pt;
+    font-weight: bold;
+}
+
+#thework > h3 {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+#thework > h4 {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#thework > h5 {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#thework > h6 {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.amw-listing-item {
+    margin-bottom: 1px;
+}
+
+.amw-diff-context {
+    color: #999;
+}
+
+.amw-diff-deletion {
+    color: red;
+}
+
+.amw-diff-insertion {
+    color: green;
+}
+
+.amw-paging-anchor {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.amw-bbselect-cell {
+    vertical-align: middle !important;
+    text-align:center
+}
+
+.amw-form-field {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+img.amw-fbreader {
+    width: 200px;
+}
+
+img.text-cover-preview {
+    max-width: 250px;
+}
+
+img.text-cover-img-mini {
+    max-width: 150px;
+    padding: 10px;
+}
+
+div.text-cover-img-mini-container {
+    float:right;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+img#text-cover-img {
+    margin: 10px 0;
+    padding: 0;
+}
+
+
+div#text-cover-img-container {
+    float:right;
+}
+
+@media screen and (max-width: 767px) {
+    div#text-cover-img-container {
+        float: none;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    div#text-cover-img-container {
+        width: 50%;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+img.pdfmyicons {
+    margin-bottom: 10px;
+}
+
+div.amw-latest-listing-item-date {
+    display: inline;
+}
+
+div.amw-cloud-element {
+    display: inline-block;
+    margin: 3px;
+}
+
+.amw-cloud-element-level-0 {
+    font-size: 10pt;
+}
+
+.amw-cloud-element-level-1, .amw-cloud-element-level-2, .amw-cloud-element-level-3,
+.amw-cloud-element-level-4, .amw-cloud-element-level-5 {
+    font-size: 11pt;
+}
+
+.amw-cloud-element-level-6, .amw-cloud-element-level-7, .amw-cloud-element-level-8,
+.amw-cloud-element-level-9, .amw-cloud-element-level-10 {
+    font-size: 12pt;
+}
+
+.amw-cloud-element-level-11, .amw-cloud-element-level-12, .amw-cloud-element-level-13,
+.amw-cloud-element-level-14, .amw-cloud-element-level-15 {
+    font-size: 13pt;
+}
+
+.amw-cloud-element-level-16, .amw-cloud-element-level-17, .amw-cloud-element-level-18,
+.amw-cloud-element-level-19, .amw-cloud-element-level-20 {
+    font-size: 14pt;
+}
+
+/*
+.amw-cloud-element-texts {
+    display: none;
+}
+*/
+
+.amw-cloud-href, .amw-cloud-href:hover {
+    text-decoration: none;
+}
+
+div.amw-post-listing-container {
+    margin-top: 10px;
+}
+
+div#text-next-post-link span.fa,
+div#text-prev-post-link span.fa,
+div#text-next-post-link span.glyphicon,
+div#text-prev-post-link span.glyphicon {
+    font-size: 20px;
+}
+
+.amw-fixed-panel-edit {
+    width: 100%;
+    overflow-y: scroll;
+    height: 300px;
+    resize: vertical;
+}
+
+.amw-spacer-20 {
+    margin:0;
+    padding:0;
+    height: 20px;
+}
+
+.amw-spacer-50 {
+    margin:0;
+    padding:0;
+    height: 50px;
+}
+
+.table-text-centered td,
+.table-text-centered th
+{
+    text-align: center;
+}
+
+.editor-fullscreen textarea {
+    width: 90vw;
+    height: 90vh !important;
+    margin: auto;
+    font-size: 14pt;
+    line-height: 1.2;
+}
+
+.editor-fullscreen #markItUpMaintextarea {
+    width: 90vw;
+    margin: auto;
+}
+
+.editor-fullscreen {
+    background:white;
+    margin: auto;
+}
+
+.editor-fullscreen #fullscreen-markitup-toggle-button {
+    text-align: center;
+}
+
+.amw-video-embed-container iframe {
+    padding: 20px 0;
+    width: 100%;
+    height: 450px;
+}
+
+.amw-show-text-type-and-number-of-pages {
+    padding: 0 0 0 10px;
+}
+
+img.amw-wide-banner-img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.remove-attachment-action, a.use-image-as-picture, a.use-image-as-cover {
+    color: black;
+}
+
+a.remove-attachment-action-disabled, a.use-image-as-picture-disabled, a.use-image-as-cover-disabled {
+    color: #cdcdcd;
+}
+
+a.search-autocomplete-item {
+    color: black;
+    padding-left: 5px;
+}
+
+a.search-autocomplete-item:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.schema-preview img {
+    max-height: 160px;
+}
+
+.schema-preview-single img {
+    max-height: 80px;
+
+}
+div.schema-preview {
+    margin: 20px;
+}
+
+a.rss-aggregate-site-title {
+    font-weight: bold;
+}
+
+ul.ui-autocomplete {
+    z-index: 10000 !important;
+}
+
+.ui-menu-item:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.mb-1 {
+    margin-bottom: 1em;
+}
+
+.mt-1 {
+    margin-top: 1em;
+}
+
+legend.amw-facet-title {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 0px;
+    margin-top: 8px;
+}
+
+/* taken from here: https://codepen.io/khoama/pen/hpljA */
+
+.node-overview-list ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+
+.node-overview-list ul {
+    margin: 0px 0px 0px 20px;
+    list-style: none;
+    line-height: 2em;
+}
+
+.node-overview-list ul li{
+    position: relative;
+}
+
+.node-overview-list ul li:before {
+    position: absolute;
+    left: -15px;
+    top: 0px;
+    content: '';
+    display: block;
+    border-left: 1px solid #ddd;
+    height: 1em;
+    border-bottom: 1px solid #ddd;
+    width: 10px;
+}
+
+.node-overview-list ul li:after {
+    position: absolute;
+    left: -15px;
+    bottom: -7px;
+    content: '';
+    display: block;
+    border-left: 1px solid #ddd;
+    height: 100%;
+}
+
+.node-overview-list ul li:last-child:after {
+    display: none;
+}
+
+.node-links ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.node-overview-list a {
+    color: inherit;
+}
+
+.node-overview-list, .amw-label-node {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.amw-label-node {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: block;
+  margin-left: 2px;
+  font-family: 'ForkAwesome';
+  opacity: 0.5;
+}
+table.dataTable thead .sorting:after {
+  opacity: 0.2;
+  content: "\f0dc";
+  /* sort */
+}
+table.dataTable thead .sorting_asc:after {
+  content: "\f161";
+  /* sort-by-attributes */
+}
+table.dataTable thead .sorting_desc:after {
+  content: "\f160";
+  /* sort-by-attributes-alt */
+}
+
+textarea.form-control {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+
+.embed-responsive-audio {
+    height: 40px;
+}
+
+.amw-category-list-in-listing {
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+.panel-footer p {
+    margin-bottom: 0px;
+}

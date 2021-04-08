@@ -1,0 +1,174 @@
+/* Text::Amuse base CSS */
+
+/* override bootstrap */
+blockquote {
+    font-size: 10pt;
+}
+
+/* invisibles */
+span.hiddenindex, span.commentmarker, .comment, span.tocprefix {
+    display: none
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 24pt;
+}
+
+#thework h1, #thework h2, #thework h3, #thework h4, #thework h5, #thework h6 {
+    clear:both;
+}
+
+sup, sub {
+    font-size: 75%;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.comment {
+    background: rgb(255,255,158);
+}
+
+.verse {
+    margin: 24px 48px;
+}
+
+hr {
+    margin: 24px 0;
+    height: 1px;
+}
+
+table {
+    margin: 24px auto;
+}
+
+td, th { vertical-align: top; }
+th {font-weight: bold;}
+
+caption {
+    caption-side:bottom;
+}
+
+img.embedimg {
+    max-width:90%;
+}
+div.image, div.float_image_f {
+    margin: 1em;
+    text-align: center;
+    padding: 3px;
+}
+
+div.float_image_r {
+    float: right;
+}
+
+div.float_image_l {
+    float: left;
+}
+
+div.float_image_f {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.biblio p, .play p {
+  margin-left: 1em;
+  text-indent: -1em;
+}
+
+div.biblio, div.play {
+  padding: 24px 0;
+}
+
+div.caption {
+    padding: 1em 0 1em 0;
+}
+
+div.center {
+    text-align: center;
+    margin: 1em 0 1em 0;
+}
+
+div.right {
+    text-align: right;
+    margin: 1em 0 1em 0;
+}
+
+div.right > p {
+    margin: 0;
+}
+
+div.center > p {
+    margin: 0;
+}
+
+div#tableofcontents{
+    padding:20px;
+}
+
+#tableofcontents p {
+    margin: 3px 1em;
+    text-indent: -1em;
+}
+
+.toclevel1 {
+	font-weight: bold;
+	font-size:11pt;
+}	
+
+.toclevel2 {
+	font-weight: bold;
+	font-size: 10pt;
+    padding-left: 10pt;
+}
+
+.toclevel3 {
+	font-weight: normal;
+	font-size: 9pt;
+    padding-left: 20pt;
+}
+
+.toclevel4 {
+	font-weight: normal;
+	font-size: 8pt;
+    padding-left: 30pt;
+}
+
+
+/* footnotes */
+
+a.footnote, a.footnotebody {
+    font-size: 80%;
+    line-height: 0;
+    vertical-align: super;
+    text-decoration: none;
+}
+
+* + p.fnline, * + p.secondary-fnline {
+    border-top: 1px solid black;
+    padding-top: 0.5em;
+}
+
+p.fnline + p.fnline,  p.secondary-fnline + p.secondary-fnline {
+    border-top: none;
+    padding-top: 0;
+}
+
+p.fnline, p.secondary-fnline {
+    font-size: 80%;
+}
+
+/* end footnotes */
+
+/* special fonts */
+
+.muse-sc {
+   font-variant: small-caps;
+}
+
+.muse-sf {
+    font-family: Helvetica, Arial, sans-serif;
+}
